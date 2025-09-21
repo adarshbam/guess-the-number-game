@@ -13,7 +13,8 @@ let firstGuess = true;
 guess.addEventListener("click", (e) => {
   e.preventDefault();
   let numberGuessed = guessedNumber.value;
-  guessMsg += firstGuess && " " + numberGuessed;
+  guessMsg += (firstGuess ? " " : ", ") + numberGuessed;
+  firstGuess = false;
   if (numberToGuess < numberGuessed) {
     result.textContent = "Guess Lower";
   } else if (numberToGuess > numberGuessed) {
